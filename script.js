@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cells = document.querySelectorAll('.cell');
     const status = document.getElementById('status');
     const resetButton = document.getElementById('reset');
+    const newGameButton = document.getElementById('new'); // New Game Button
+
     let currentPlayer = 'X';
     let gameState = ['', '', '', '', '', '', '', '', ''];
     let gameActive = true;
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameState[clickedCellIndex] = currentPlayer;
         clickedCell.textContent = currentPlayer;
         clickedCell.classList.add('clicked');
+        clickedCell.setAttribute('aria-label', `Cell ${clickedCellIndex} contains ${currentPlayer}`);
         clickSound.play();
 
         checkForWin();
@@ -98,7 +101,19 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.textContent = '';
             cell.style.backgroundColor = '';
             cell.classList.remove('clicked');
+            cell.setAttribute('aria-label', 'Empty cell'); // Reset aria-labels
         });
+    }
+
+    function newGame() {
+        resetGame();
+        // Reset win counts and draws
+        xWins = 0;
+        oWins = 0;
+        draws = 0;
+        xWinsElem.textContent = xWins;
+        oWinsElem.textContent = oWins;
+        drawsElem.textContent = draws;
     }
 
     cells.forEach(cell => {
@@ -106,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resetButton.addEventListener('click', resetGame);
+    newGameButton.addEventListener('click', newGame);
 
     // Initialize aria-labels for empty cells
     cells.forEach(cell => {
