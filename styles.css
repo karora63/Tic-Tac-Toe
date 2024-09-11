@@ -89,6 +89,23 @@ h1 {
     transform: scale(1.05); /* Slight scale on hover */
 }
 
+.new {
+    font-size: 1.2em;
+    padding: 12px 25px;
+    background-color: #0077b6; /* Primary blue */
+    background-image: linear-gradient(135deg, #0077b6, #00b4d8); /* Gradient */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.new:hover {
+    background-color: #005f8b;
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     .board {
@@ -101,7 +118,7 @@ h1 {
         font-size: 1.8em;
     }
 
-    .reset {
+    .reset, .new-game {
         font-size: 1.1em;
         padding: 10px 20px;
     }
