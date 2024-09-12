@@ -118,7 +118,7 @@ h1 {
         font-size: 1.8em;
     }
 
-    .reset, .new {
+    .reset,.new {
         font-size: 1.1em;
         padding: 10px 20px;
     }
